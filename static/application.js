@@ -81,7 +81,7 @@ haste_document.prototype.save = function(data, callback) {
         callback($.parseJSON(res.responseText));
       }
       catch (e) {
-        callback({message: 'Something went wrong!'});
+        callback({message: 'une erreur est survenue'});
       }
     }
   });
@@ -263,8 +263,8 @@ haste.prototype.configureButtons = function() {
   this.buttons = [
     {
       $where: $('#box2 .save'),
-      label: 'Save',
-      shortcutDescription: 'control + s',
+      label: 'Enregistrer',
+      shortcutDescription: 'CTRL + S',
       shortcut: function(evt) {
         return evt.ctrlKey && (evt.keyCode === 83);
       },
@@ -276,44 +276,44 @@ haste.prototype.configureButtons = function() {
     },
     {
       $where: $('#box2 .new'),
-      label: 'New',
+      label: 'Nouveau',
       shortcut: function(evt) {
         return evt.ctrlKey && evt.keyCode === 78;
       },
-      shortcutDescription: 'control + n',
+      shortcutDescription: 'CTRL + N',
       action: function() {
         _this.newDocument(!_this.doc.key);
       }
     },
     {
       $where: $('#box2 .duplicate'),
-      label: 'Duplicate & Edit',
+      label: 'Dupliquer & Editer',
       shortcut: function(evt) {
         return _this.doc.locked && evt.ctrlKey && evt.keyCode === 68;
       },
-      shortcutDescription: 'control + d',
+      shortcutDescription: 'CTRL + D',
       action: function() {
         _this.duplicateDocument();
       }
     },
     {
       $where: $('#box2 .raw'),
-      label: 'Just Text',
+      label: 'Raw',
       shortcut: function(evt) {
         return evt.ctrlKey && evt.shiftKey && evt.keyCode === 82;
       },
-      shortcutDescription: 'control + shift + r',
+      shortcutDescription: 'CTRL + MAJ + R',
       action: function() {
         window.location.href = '/raw/' + _this.doc.key;
       }
     },
     {
       $where: $('#box2 .twitter'),
-      label: 'Twitter',
+      label: 'Partager sur Twitter',
       shortcut: function(evt) {
         return _this.options.twitter && _this.doc.locked && evt.shiftKey && evt.ctrlKey && evt.keyCode == 84;
       },
-      shortcutDescription: 'control + shift + t',
+      shortcutDescription: 'CTRL + MAJ + T',
       action: function() {
         window.open('https://twitter.com/share?url=' + encodeURI(window.location.href));
       }
